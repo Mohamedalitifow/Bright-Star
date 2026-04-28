@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Flame, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { COMPANY } from '../data/site'
+import brightLogo from '../assets/bright.svg'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   [
@@ -22,15 +23,7 @@ export default function Navbar() {
           className="flex items-center gap-2 transition-opacity hover:opacity-90"
           onClick={() => setOpen(false)}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-500/15 text-accent-400 ring-1 ring-accent-500/30">
-            <Flame className="h-5 w-5" aria-hidden />
-          </span>
-          <div className="text-left leading-tight">
-            <span className="block font-display text-sm font-semibold text-white sm:text-base">
-              {COMPANY.shortName}
-            </span>
-            <span className="hidden text-xs text-slate-400 sm:block">Fuel &amp; transport</span>
-          </div>
+          <img src={brightLogo} alt={`${COMPANY.shortName} logo`} className="h-14 w-auto object-contain sm:h-16" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
